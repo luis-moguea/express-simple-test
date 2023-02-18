@@ -19,7 +19,7 @@ app.get("/api/citizens", (req, res) => {
 
 app.get("/api/citizens/:id", (req, res) => {
     const citizensFilter = citizens.find(el => el.id === parseInt(req.params.id));
-    if (!citizensFilter) res.status(404).send("User does not exist");
+    if (!citizensFilter) return res.status(404).send("User does not exist");
     res.send(citizensFilter);
 })
 
